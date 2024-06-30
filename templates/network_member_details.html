@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load bootstrap5 %}
+{% load i18n %}
+
+{% block content %}
+
+
+<body>
+
+<h3>{{ network_member.Όνομα }} {{ network_member.Επώνυμο }}</h3>
+  
+<p>Φορέας εργασίας: {{ network_member.Φορέας_εργασίας }}</p>
+<p>Ιδιότητα: {{ network_member.Ιδιότητα }}</p>
+<p>Τηλέφωνο: {{ network_member.Τηλέφωνο }}</p>
+
+<p>Πίσω στα<a href="/network_members/"> Μέλη Δικτύου Καινοτομίας</a></p>
+<div class="row">
+        
+        {% if network_member.user_id == request.user.id %}
+            <div class="col-4 offset-4">
+                <a class="btn btn-warning btn-sm mt-1 mb-1" <a class="btn btn-danger btn-sm mt-1 mb-1" <a href="http://127.0.0.1:8000/network_members/details/{{ network_member.id }}/change_profile/"> Επεξεργασία</a>
+                <a class="btn btn-danger btn-sm mt-1 mb-1" <a href="http://127.0.0.1:8000/network_members/details/{{ network_member.id }}/delete_profile/"> Απεγγραφή από το Δίκτυο Καινοτομίας</a>
+            </div>
+        {% endif %}
+    </div>
+
+
+
+</body>
+
+
+{% endblock %}
