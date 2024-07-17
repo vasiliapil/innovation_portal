@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+
+    
+        <h4>{{ object.Τίτλος }}</h4>
+    
+
+    {% if request.user.is_authenticated %}
+        
+            <a class="btn btn-warning btn-sm mt-1 mb-1" href="{% url 'post-create' object.id %}">Νέα Δημοσίευση</a>
+        </div>
+    {% endif %}
+
+    <div class="posts mt-5">
+        {% for post in posts %}
+            <div class="row post mb-4">
+                
+                    <a href="{% url 'post-detail' post.id %}">
+                        <h5 class="post_title">{{ post.Τίτλος }}</h5></a> <p> από {{ post.Συγγραφέας }} <p> στις {{ post.Δημοσίευση }}</p>
+                        
+                    </a>
+                    <hr>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="row">
+        
+        {% if object.Συγγραφέας == user %}
+            <div class="col-4 offset-4">
+                <a class="btn btn-warning btn-sm mt-1 mb-1" href="{% url 'topic-update' object.id %}">Επεξεργασία</a>
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'topic-delete' object.id %}">Διαγραφή</a>
+            </div>
+        {% endif %}
+    
+
+        
+    </div>
+
+{% endblock content %} 

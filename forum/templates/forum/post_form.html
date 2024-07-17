@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="row">
+        
+            <h1 style="width: 8ch;">Νέα Δημοσίευση</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    {{ form.as_p }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Υποβολή</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock content %} 

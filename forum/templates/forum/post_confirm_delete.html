@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Διαγραφή δημοσίευσης</legend>
+                <h2>Είστε σίγουρος ότι επιθυμείτε να διαγράψετε τη δημοσίευση; "{{ object.Τίτλος }}"</h2>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-danger" type="submit" >Ναι, διαγραφή</button>
+                <a class="btn btn-outline-secondary" href="{% url 'post-detail' object.id %}">Ακύρωση</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

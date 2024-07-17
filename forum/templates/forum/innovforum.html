@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div>
+            <h3 style="width: 6ch;">Θεματικές Ενότητες</h3>
+    </div>
+
+    
+        <div id="topic-add">
+            <a href="{% url 'topic-add' %}">Δημιουργία νέας Θεματικής Ενότητας</a>
+                <h3><i class="fas fa-plus"></i></h3>
+            </a>
+        </div>
+    
+
+    <div class="topics">
+        {% for topic in topics %}
+            <div class="row">
+                <div>
+                    <a href="{% url 'topic-detail' topic.id %}"><h5 class="row topic_title">{{ topic.Τίτλος }}</h5></a>
+                    <p class="row">{{ topic.Περιγραφή }}</p>
+                    <p class="row">{{ topic.Συγγραφέας }}</p>
+                    <hr>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+{% endblock content %} 
