@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+
+    <h4>{% trans 'Αποσύνδεση' %}</h4>
+
+    <p>
+        {% trans 'Επιβεβαίωση αποσύνδεσης:' %}
+    </p>
+
+    <form action="{% url 'log_out' %}" method="post">
+        {% csrf_token %}
+        <button class="btn btn-success">{% trans 'Αποσύνδεση' %}</button>
+    </form>
+
+{% endblock %}

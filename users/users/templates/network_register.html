@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action= add_member/ method=POST>
+	{% csrf_token %}
+	
+	{{ form.as_p }}		
+	<input type="submit" value="Εγγραφή στο Δίκτυο Καινοτομίας" />
+</form>
+
+{% endblock content%}
