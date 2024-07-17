@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Αναζήτηση Καινοτομιών</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" media="screen" title="no title">
+  </head>
+
+{% block content %}
+  <body>
+    <div class="container">
+      <h2>Λίστα καινοτομιών</h2>
+
+      <div class="panel">
+        <div class="panel-body">
+          <form class="form" action="" method="get">
+            {{form.as_p}}
+            <a class="btn btn-default" href="{% url 'search' %}">Αναζήτηση ξανά</a>
+            <button type="submit" class="btn btn-primary">Αναζήτηση</button>
+          </form>
+        </div>
+
+      </div>
+
+      <table class="table table-striped">
+        <tr>
+          <th>
+            Τίτλος
+          </th>
+          <th>
+            Φορέας
+          </th>
+        </tr>
+        {% for innovation in object_list %}
+        <tr>
+          <td>
+            {{innovation.Τίτλος}} {{innovation.Φορέας}}
+          </td>
+          
+        </tr>
+        {% endfor %}
+      </table>
+
+    </div>
+  </body>
+{% endblock %} 
+</html>

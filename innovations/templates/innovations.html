@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+  <h2>Αποθετήριο Καινοτομιών Δημοσίου Τομέα<br/><br/>Καινοτομίες</h2>
+  
+  <ul>
+    {% for x in myinnovations %}
+      <li><a href="innov_details/{{ x.id }}">{{ x.Τίτλος }} {{ x.Φορέας }}</a></li>
+    {% endfor %}
+  </ul>
+<a href="/innovations/submit/"><p>Υποβολή Καινοτομίας στο Αποθετήριο</a></p>
+<a href="/innovations/search/"><p>Αναζήτηση Καινοτομιών</a></p>
+{% endblock %}

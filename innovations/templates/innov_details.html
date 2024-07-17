@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+  <h3>Πληροφορίες για {{ myinnovation.Τίτλος }} {{ myinnovation.Φορέας }}</h3>
+  <br/><br/>
+  <h3>{{ myinnovation.Τίτλος }} {{ myinnovation.Φορέας }}</h3>
+  
+  <p>Επίπεδο: {{ myinnovation.Επίπεδο }}</p>
+  <p>Περιγραφή: {{ myinnovation.Περιγραφή }}</p>
+  <p>Τομέας_πολιτικής: {{ myinnovation.Toμέας_πολιτικής }}</p>
+  <p>Τύπος: {{ myinnovation.Τύπος }}</p>
+  <p>Στάδιο: {{ myinnovation.Στάδιο }}</p>
+  <p>Στόχοι: {{ myinnovation.Στόχοι }}</p>
+  <p>Αποτελέσματα: {{ myinnovation.Αποτελέσματα }}</p>
+  <p>Σχεδιασμός: {{ myinnovation.Σχεδιασμός }}</p>
+  <p>Πειραματική_εφαρμογή: {{ myinnovation.Πειραματική_εφαρμογή }}</p>
+  <p>Εφαρμογή: {{ myinnovation.Εφαρμογή }}</p>
+  <p>Διάδοση: {{ myinnovation.Διάδοση}}</p>
+  <p>Χρηματοδότηση: {{ myinnovation.Χρηματοδότηση }}</p>
+  
+  <p>Πίσω στo <a href="http://127.0.0.1:8000/innovations/">Αποθετήριο Καινοτομιών</a></p>
+  
+<div class="row">
+        
+        {% if myinnovation.network_member.user.id == request.user.id %}
+            <div class="col-4 offset-4">
+                <a class="btn btn-warning btn-sm mt-1 mb-1" href="{% url 'innovation-update' myinnovation.id %}">Επεξεργασία</a>
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'innovation-delete' myinnovation.id %}">Διαγραφή</a>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="row mt-4">
+        
+
+        <div class="col-3 align-self-center">
+            <h5>{{ myinnovation.body }}<h5>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+{% if user.id in network_members %}
+    <form action=submit_innovation/  method=POST  >
+	{% csrf_token %}
+	
+	{{ form.as_p }}		
+	<input type="submit" value="Υποβολή Καινοτομίας στο Αποθετήριο" />
+    </form>
+{% else %}
+    <a href="http://127.0.0.1:8000/network_sign_up/">Εγγραφή στο Δίκτυο Καινοτομίας</a>
+{% endif %}
+{% endblock %}
