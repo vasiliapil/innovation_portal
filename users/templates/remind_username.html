@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load bootstrap5 %}
+{% load i18n %}
+
+{% block content %}
+
+    <h4>{% trans 'Υπενθύμιση ονόματος χρήστη' %}</h4>
+
+    <form method="post">
+
+        {% csrf_token %}
+        {% bootstrap_form form %}
+
+        <button class="btn btn-primary">{% trans 'Επόμενο' %}</button>
+
+    </form>
+
+    <hr>
+
+    <ul>
+        <li>
+            <a href="{% url 'log_in' %}">{% trans 'Σύνδεση' %}</a>
+        </li>
+    </ul>
+
+{% endblock %}
